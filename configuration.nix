@@ -33,7 +33,14 @@
     finder.FXPreferredViewStyle = "Nlsv";  # Finder opens folders as a list ("Nlsv" is Apple's code for list view)
     finder.CreateDesktop = false;          # files on the Desktop are not drawn there; the desktop stays empty
     trackpad.Clicking = true;              # a tap on the trackpad counts as a click
+    CustomUserPreferences."io.github.keycastr".selectedVisualizer = "Svelte";   # why: KeyCastr's default overlay clips every key on this macOS; Svelte draws at a usable size
+    CustomUserPreferences."io.github.keycastr".SUEnableAutomaticChecks = false;   # why: nothing on this Mac updates on its own; update.sh moves it
   };
+
+  # why: Escape is a long reach in Vim and Caps Lock is otherwise unused; macOS applies this at the
+  # driver level, so it holds in every app. enableKeyMapping must be on for the remap to take effect.
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.remapCapsLockToEscape = true;
 
   # why: the font the terminal and editor use, installed where macOS registers fonts (/Library/Fonts/Nix Fonts).
   # In the home folder alone, Mac apps such as the terminals could not see it.
@@ -64,6 +71,8 @@
     brews = [ ];       # command-line programs from Homebrew; empty on purpose, the command-line tools come from Nix
     casks = [
       "ghostty"        # the terminal; its settings are a few lines in home.nix, not a preferences window
+      "keycastr"       # why: shows my keystrokes on screen while I record
+      "opensuperwhisper"   # why: I talk to the agents more than I type to them; open-source dictation
     ];
     # why so short: the template carries only what the setup needs. Your own apps are your
     # first additions - one line each.

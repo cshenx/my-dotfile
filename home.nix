@@ -41,6 +41,9 @@ in
   programs.git.enable = true;
   # why: without this, git guesses an author from your account name and the Mac's hostname and commits with that. This makes it refuse until name and email are set.
   programs.git.settings.user.useConfigOnly = true;
+  # why: who commits are authored by; the noreply address keeps a real inbox off every public commit.
+  programs.git.settings.user.name = "Charles Shen";
+  programs.git.settings.user.email = "105521036+agenteer@users.noreply.github.com";
 
   # why: the Mac's default shell, with the two things that make it pleasant.
   programs.zsh = {
@@ -113,7 +116,7 @@ in
     settings = {
       auto-update = "off";
       font-family = "Hack Nerd Font";
-      font-size = 15;
+      font-size = 22;
     };
   };
 

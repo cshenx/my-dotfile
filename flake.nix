@@ -21,7 +21,7 @@
     let
       # The one username line to change if this isn't your machine.
       # bootstrap.sh rewrites this for you if your macOS username differs.
-      user = "your-username";
+      user = "charles";
       # why: the kind of Mac, named once so both halves below agree. An Intel Mac changes this one word to "x86_64-darwin".
       system = "aarch64-darwin";
       # why: the pinned package set, used for everything in home.nix except the three agents.
