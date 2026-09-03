@@ -44,10 +44,6 @@ in
   # why: who commits are authored by; the noreply address keeps a real inbox off every public commit.
   programs.git.settings.user.name = "Charles Shen";
   programs.git.settings.user.email = "105521036+agenteer@users.noreply.github.com";
-  # why: `gh auth login` set up SSH keys, not an HTTPS credential, and this file is read-only from the Nix
-  # store so `gh auth setup-git` cannot write a helper into it. This rewrites every https://github.com/ URL
-  # to SSH as git reads it, so a plain `git clone https://github.com/...` authenticates with the key.
-  programs.git.settings.url."git@github.com:".insteadOf = "https://github.com/";
 
   # why: the Mac's default shell, with the two things that make it pleasant.
   programs.zsh = {
