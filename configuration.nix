@@ -35,6 +35,9 @@
     trackpad.Clicking = true;              # a tap on the trackpad counts as a click
     CustomUserPreferences."io.github.keycastr".selectedVisualizer = "Svelte";   # why: KeyCastr's default overlay clips every key on this macOS; Svelte draws at a usable size
     CustomUserPreferences."io.github.keycastr".SUEnableAutomaticChecks = false;   # why: nothing on this Mac updates on its own; update.sh moves it
+    # why: while the screen is being recorded or shared, macOS hides Touch ID from the sudo dialog and asks for the
+    # password instead (the same rule that bites DisplayLink docks). This tells it to offer Touch ID anyway.
+    CustomUserPreferences."com.apple.security.authorization".ignoreArd = true;
   };
 
   # why: Escape is a long reach in Vim and Caps Lock is otherwise unused; macOS applies this at the
